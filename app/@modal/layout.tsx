@@ -1,6 +1,8 @@
+import {ReactNode} from "react";
+
 interface ModalLayoutProps {
-    children: React.ReactNode;
-    modal: React.ReactNode;
+    children: ReactNode;
+    modal?: ReactNode;
 }
 
 
