@@ -4,7 +4,7 @@ import {ReactNode} from "react";
 interface LayoutProps {
     sidebar: ReactNode;
     children: ReactNode;
-    modal: ReactNode;
+    modal?: ReactNode;
 }
 
 const NotesLayout = ({sidebar, children, modal}: LayoutProps) => {
