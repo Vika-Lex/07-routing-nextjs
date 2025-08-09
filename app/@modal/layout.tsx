@@ -1,17 +1,11 @@
-import {ReactNode} from "react";
-
-interface ModalLayoutProps {
-    children: ReactNode;
-    modal?: ReactNode;
-}
-
-
-const ModalLayout = ({children, modal}: ModalLayoutProps) => {
+export default function ModalLayout({
+                                        children
+                                    }: {
+    children: React.ReactNode;
+}) {
     return (
-        <>
+        <div className="modal-wrapper">
             {children}
-            {modal}
-        </>
+        </div>
     );
-};
-export default ModalLayout
+}
