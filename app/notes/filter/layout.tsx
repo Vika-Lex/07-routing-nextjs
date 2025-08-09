@@ -4,10 +4,10 @@ import {ReactNode} from "react";
 interface LayoutProps {
     sidebar: ReactNode;
     children: ReactNode;
-    modal?: ReactNode;
+
 }
 
-const NotesLayout = ({sidebar, children, modal}: LayoutProps) => {
+const NotesLayout = ({sidebar, children}: LayoutProps) => {
     return (
         <div className={css.container}>
             <div className={css.sidebar}>
@@ -15,7 +15,7 @@ const NotesLayout = ({sidebar, children, modal}: LayoutProps) => {
             </div>
             <div className={css.main}>
                 {children}
-                {modal}
+
             </div>
         </div>
     );
