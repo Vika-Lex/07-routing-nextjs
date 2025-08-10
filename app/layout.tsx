@@ -16,8 +16,10 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({
                                        children,
+    modal,
                                    }: Readonly<{
     children: React.ReactNode;
+    modal: React.ReactNode;
 }>) {
 
 
@@ -28,7 +30,10 @@ export default function RootLayout({
             <div className='wrapper'>
                 <Header/>
                 <main>
-                    <div className='container'>{children}</div>
+                    <div className='container'>
+                        {children}
+                        {modal}
+                    </div>
                 </main>
                 <Footer/>
             </div>
