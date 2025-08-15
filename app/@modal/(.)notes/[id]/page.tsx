@@ -10,6 +10,7 @@ interface PreviewProps {
 
 export default async function NotePreviewPage ({params}: PreviewProps) {
     const {id} = await params;
+
     const queryClient = new QueryClient();
 
     await queryClient.prefetchQuery({
@@ -20,10 +21,7 @@ export default async function NotePreviewPage ({params}: PreviewProps) {
 
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
-           <NotePreviewClient/>
+            <NotePreviewClient/>
         </HydrationBoundary>
     );
 };
-
-
-

@@ -11,16 +11,23 @@ const TagsMenu = () => {
     return (
         <div className={css.menuContainer}>
             <button onClick={toggle} className={css.menuButton}>Notes</button>
-            <ul className={css.menuList}>
+           { isOpen && (
+               <ul className={css.menuList}>
 
-                {CATEGORIES.map((category) => (
-                    <li key={category} className={css.menuItem}>
-                        <Link href={`/notes/filter/${category}`} onClick={toggle} className={css.menuLink}>
-                            {category}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+                   {CATEGORIES.map((category) => (
+                       <li key={category}
+                           className={css.menuItem}
+                       >
+                           <Link href={`/notes/filter/${category}`}
+                                 onClick={toggle}
+                                 className={css.menuLink}
+                           >
+                               {category}
+                           </Link>
+                       </li>
+                   ))}
+               </ul>
+           )}
         </div>
     );
 };

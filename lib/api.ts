@@ -2,7 +2,7 @@ import axios from "axios";
 import {type Note} from "@/types/note";
 import {API_URL} from "@/constants";
 
-interface NoteResponse {
+export interface NoteResponse {
     notes: Note[];
     totalPages: number;
 }
