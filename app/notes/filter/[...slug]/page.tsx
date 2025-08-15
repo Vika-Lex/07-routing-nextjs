@@ -9,9 +9,10 @@ const Page = async ({params}:PageProps) => {
     const {slug} = await params;
     const filterValue = slug[0];
 
-    const tag = filterValue === 'All' ? undefined : filterValue;
+    const tag = filterValue === 'All' ? '' : filterValue;
 
     const queryClient = new QueryClient();
+    const initialData = await getAllNotes('', 1, Sorting.CREATED, 10, tag);
 
     await queryClient.prefetchQuery({
         queryKey: ['notes', '', 1, tag],
@@ -20,7 +21,7 @@ const Page = async ({params}:PageProps) => {
 
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
-            <NotesClient filterTag={tag}/>
+            <NotesClient filterTag={tag} initialData={initialData}/>
         </HydrationBoundary>
 
     );
