@@ -13,7 +13,7 @@ import css from './NotePreview.module.css';
 export default function NotePreviewClient() {
     const router = useRouter();
     const {id} = useParams<{ id: string }>();
-    const [noteNew, setNoteNew] = useState<Note | null>(null)
+
 
     const {data: note, isLoading, isError} = useQuery({
         queryKey: ['note', id],
@@ -25,16 +25,6 @@ export default function NotePreviewClient() {
         router.back();
     };
 
-    useEffect(() => {
-        if (!note) return
-        const fn = async () => {
-            const res = await getNoteById(note.id);
-            setNoteNew(res)
-        };
-        fn();
-    }, [note]);
-
-
     if (isLoading) return <Loading/>;
 
     if (isError) return <ErrorMessage message='Could not fetch the list of notes.'/>
@@ -44,7 +34,7 @@ export default function NotePreviewClient() {
     return (
         <>
             {note && (
-                <Modal>
+                <Modal onCloseModal={handleCloseModal}>
                     <button className={css.backBtn}
                             onClick={handleCloseModal}
                     >← Back
